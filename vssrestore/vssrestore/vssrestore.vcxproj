@@ -125,10 +125,12 @@
   <ItemGroup>
     <ClCompile Include="config.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="vss_copy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app_defs.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="vss_copy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

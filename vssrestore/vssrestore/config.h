@@ -21,6 +21,17 @@ public:
 	void setNoOfThreads(int nThreads);
 	void setNoOfRetries(int nRetries);
 
+	// Getter functions to access configuration values
+	std::string getSourcePath() const;
+	std::string getTargetPath() const;
+	int getBlockSize() const;
+	int getNoOfThreads() const;
+	int getNoOfRetries() const;
+
+	// A function to validate the configuration settings
+	bool validateConfigValues(Config* config);
+
 	// A function to display the current configuration settings for debugging purposes
 	void displayConfig();
+
 };
