@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 
 	// Check if the correct number of arguments is provided
 	if (argc < 3) {
-		std::cout << "Usage: vssrestore.exe <shadow_volume_path> <target_partition_path> <per_block_size> \nOptions:\n  -b        Specify the block size <KB> (By default: 1024 kilobytes (1MB))\n  -t        Specify the number of threads(By default: 1)\n  -r        Retry Count (By default 0)";
+		std::cout << "Usage: vssrestore.exe <shadow_volume_path> <target_partition_path>\nOptions:\n  -b        Specify the block size <KB> (By default: 1024 kilobytes (1MB))\n  -t        Specify the number of threads(By default: 1)\n  -r        Retry Count (By default 0)";
 		return FAILED;
 	}
 	
@@ -32,21 +32,21 @@ int main(int argc, char *argv[]) {
 		std::string arg = argv[i];
 		
 		if (arg == "-b") {
-			if (i + 1 > argc) {
+			if (i + 1 >= argc) {
 				std::cout << "Missing value for " << arg << std::endl;
 				return FAILED;
 			}
 			config.setBlockSize(std::stoi(argv[++i]));
 		}
 		else if (arg == "-t") {
-			if (i + 1 > argc) {
+			if (i + 1 >= argc) {
 				std::cout << "Missing value for " << arg << std::endl;
 				return FAILED;
 			}
 			config.setNoOfThreads(std::stoi(argv[++i]));
 		}
 		else if (arg == "-r") {
-			if (i + 1 > argc) {
+			if (i + 1 >= argc) {
 				std::cout << "Missing value for " << arg << std::endl;
 				return FAILED;
 			}

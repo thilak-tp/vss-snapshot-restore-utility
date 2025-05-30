@@ -18,11 +18,11 @@ void Config::setTargetPath(std::string dst) {
 }
 
 void Config::setBlockSize(int bSize) {
-	blockSize = bSize;
+	blockSize = bSize * 1024;
 }
 
 void Config::setNoOfThreads(int nThreads) {
-	noOfRetries = nThreads;
+	noOfThreads = nThreads;
 }
 
 void Config::setNoOfRetries(int nRetries) {
@@ -35,7 +35,7 @@ void Config::displayConfig(){
 
 	std::cout << "Source Path: " << sourcePath << std::endl;
 	std::cout << "Target Path: " << targetPath << std::endl;
-	std::cout << "Block Size: " << blockSize << " kilobytes" << std::endl;
+	std::cout << "Block Size: " << blockSize << " bytes" << std::endl;
 	std::cout << "Number of Threads: " << noOfThreads << std::endl;
 	std::cout << "Number of Retries: " << noOfRetries << std::endl;
 }
