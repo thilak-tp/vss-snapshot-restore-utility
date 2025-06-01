@@ -1,13 +1,5 @@
-﻿  benchmark.cpp
-  config.cpp
-  main.cpp
-D:\Projects\C++ Development\shadowcopysnapshotrestore\bkp\vss-snapshot-restore-utility\vssrestore\vssrestore\config.cpp(23,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Projects\C++ Development\shadowcopysnapshotrestore\bkp\vss-snapshot-restore-utility\vssrestore\vssrestore\config.cpp(46,9): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
-D:\Projects\C++ Development\shadowcopysnapshotrestore\bkp\vss-snapshot-restore-utility\vssrestore\vssrestore\main.cpp(50,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  vss_restorer.cpp
-D:\Projects\C++ Development\shadowcopysnapshotrestore\bkp\vss-snapshot-restore-utility\vssrestore\vssrestore\vss_restorer.cpp(22,43): warning C4244: 'initializing': conversion from 'float' to 'DWORD', possible loss of data
-D:\Projects\C++ Development\shadowcopysnapshotrestore\bkp\vss-snapshot-restore-utility\vssrestore\vssrestore\vss_restorer.cpp(22,29): warning C4244: 'initializing': conversion from 'float' to 'const DWORD', possible loss of data
-  Generating Code...
-  vssrestore.vcxproj -> D:\Projects\C++ Development\shadowcopysnapshotrestore\bkp\vss-snapshot-restore-utility\vssrestore\x64\Debug\vssrestore.exe
+﻿  main.cpp
+D:\Projects\C++ Development\shadowcopysnapshotrestore\vss-snapshot-restore-utility\vssrestore\vssrestore\main.cpp(53,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  vssrestore.vcxproj -> D:\Projects\C++ Development\shadowcopysnapshotrestore\vss-snapshot-restore-utility\vssrestore\x64\Debug\vssrestore.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

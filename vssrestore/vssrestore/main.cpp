@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 
+
+
 // Explicitly included headerfiles
 #include "app_defs.h"
 #include "config.h"
@@ -16,7 +18,8 @@
 
 // Function to print the usage message
 inline void printMessage() {
-	std::cout << "Usage: vssrestore.exe <shadow_volume_path> <target_partition_path>\nOptional Parameters:\n  -b        Specify the block size <KB>   (By default: 1024 kilobytes (1MB))\n  -t        Specify the number of threads (By default: 1)\n  -r        Retry Count                   (By default: 0)\n  --bench   To measure copy time          (in Milliseconds)\n  --debug   To display inputs being used" << std::endl;
+	//std::cout << "Usage: vssrestore.exe <shadow_volume_path> <target_partition_path>\nOptional Parameters:\n  -b        Specify the block size <KB>   (By default: 1024 kilobytes (1MB))\n  -t        Specify the number of threads (By default: 1)\n  -r        Retry Count                   (By default: 0)\n  --bench   To measure copy time          (in Milliseconds)\n  --debug   To display inputs being used" << std::endl;
+	std::cout << "Usage: vssrestore.exe <shadow_volume_path> <target_partition_path>\nOptional Parameters:\n  -b        Specify the block size <KB>   (By default: 1024 kilobytes (1MB))\n  --bench   To measure copy time          (in Milliseconds)\n  --debug   To display inputs being used" << std::endl;
 }
 
 // Main function starts here
@@ -49,7 +52,7 @@ int wmain(int argc, wchar_t* argv[]) {
 			}
 			vssRestorer.setBlockSize(std::stoi(argv[++i]));
 		}
-		else if (arg == L"-t") {
+		/*else if (arg == L"-t") {
 			if (i + 1 >= argc) {
 				std::wcout << "Missing value for " << arg << std::endl;
 				return FAILED;
@@ -62,7 +65,7 @@ int wmain(int argc, wchar_t* argv[]) {
 				return FAILED;
 			}
 			vssRestorer.setNoOfRetries(std::stoi(argv[++i]));
-		}
+		}*/
 		else if (arg == L"--bench") {
 			vssRestorer.setToBenchmark(true);
 		}

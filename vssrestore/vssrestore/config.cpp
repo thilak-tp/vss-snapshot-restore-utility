@@ -6,8 +6,8 @@ Config::Config() {
 	sourcePath = L"";
 	targetPath = L"";
 	blockSize = 1024 * 1024;
-	noOfThreads = 1;
-	noOfRetries = 0;
+	//noOfThreads = 1;
+	//noOfRetries = 0;
 	benchmarkFlag = false;
 	debugFlag = false;
 }
@@ -21,13 +21,14 @@ void Config::setTargetPath(std::wstring dst) {
 }
 void Config::setBlockSize(float bSize) {
 	blockSize = bSize * 1024;
-}
+}/*
 void Config::setNoOfThreads(int nThreads) {
 	noOfThreads = nThreads;
 }
 void Config::setNoOfRetries(int nRetries) {
 	noOfRetries = nRetries;
 }
+*/
 void Config::setToBenchmark(bool benchmark) {
 	benchmarkFlag = benchmark;
 }
@@ -45,12 +46,14 @@ const std::wstring  Config::getTargetPath() const {
 float Config::getBlockSize() const {
 	return blockSize;
 }
+/*
 int Config::getNoOfThreads() const {
 	return noOfThreads;
 }
 int Config::getNoOfRetries() const {
 	return noOfRetries;
 }
+*/
 bool Config::getBenchmarkFlag() const {
 	return benchmarkFlag;
 }
@@ -67,8 +70,8 @@ void Config::displayConfig(){
 	std::wcout <<"Source Path       : " << sourcePath << std::endl;
 	std::wcout <<"Target Path       : " << targetPath << std::endl;
 	std::cout << "Block Size        : " << blockSize << " bytes " << "| "<< blockSizeInKB << " KB" << " | " << blockSizeInMB << " MB |" <<std::endl;
-	std::cout << "Number of Threads : " << noOfThreads << std::endl;
-	std::cout << "Number of Retries : " << noOfRetries << std::endl;
+	//std::cout << "Number of Threads : " << noOfThreads << std::endl;
+	//std::cout << "Number of Retries : " << noOfRetries << std::endl;
 	std::cout << "Benchmark Flag    : " << benchmarkFlag << std::endl;
 	std::cout << "Debug Flag        : " << debugFlag << std::endl;
 	std::cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;

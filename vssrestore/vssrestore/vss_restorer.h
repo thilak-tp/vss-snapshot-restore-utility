@@ -8,13 +8,15 @@
 #include <iostream>
 
 // Explicit headerfiles
+#include <algorithm>
 #include "app_defs.h"
-
+#include <vector>
+#include <thread>
+#include <future>
 
 class VSSRestorer : public Config {
 
 public:
-	
 	// A function to check if the target path exists
 	bool pathExists(const std::wstring& path);
 	// A function to check if the shadow copy path is accessible
@@ -25,4 +27,5 @@ public:
 	bool restoreSingleFile(const std::wstring& srcPath, const std::wstring& dstPath);
 	// A function to restore single files
 	bool restoreVSSSnapshot(const std::wstring& srcDir, const std::wstring& dstDir);
+
 };

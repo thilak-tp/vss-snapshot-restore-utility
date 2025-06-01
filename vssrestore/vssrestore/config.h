@@ -12,8 +12,8 @@ class Config {
 	std::wstring sourcePath;
 	std::wstring targetPath;
 	int blockSize;;
-	int noOfThreads;
-	int noOfRetries;
+	//int noOfThreads;
+	//int noOfRetries;
 	bool benchmarkFlag;
 	bool debugFlag;
 
@@ -25,8 +25,8 @@ public:
 	void setSourcePath( std::wstring  src);
 	void setTargetPath( std::wstring  dst);
 	void setBlockSize(float bSize);
-	void setNoOfThreads(int nThreads);
-	void setNoOfRetries(int nRetries);
+	//void setNoOfThreads(int nThreads);
+	//void setNoOfRetries(int nRetries);
 	void setToBenchmark(bool benchmark);
 	void setDebugFlag(bool debug);
 
@@ -34,8 +34,8 @@ public:
 	const std::wstring  getSourcePath() const;
 	const std::wstring  getTargetPath() const;
 	float getBlockSize() const;
-	int getNoOfThreads() const;
-	int getNoOfRetries() const;
+	//int getNoOfThreads() const;
+	//int getNoOfRetries() const;
 	bool getBenchmarkFlag() const;
 	bool getDebugFlag() const;
 

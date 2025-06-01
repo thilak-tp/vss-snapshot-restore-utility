@@ -1,28 +1,45 @@
 // Implementation of the VSSRestorer class for restoring files from a VSS snapshot.
 #include "vss_restorer.h"
 
+
 // A function to restore a single file from srcPath to dstPath.
 bool VSSRestorer::restoreSingleFile(const std::wstring& srcPath, const std::wstring& dstPath) {
-    
+    // Opem the shadowcopy path
     HANDLE hSrc = CreateFileW(srcPath.c_str(), GENERIC_READ, FILE_SHARE_READ,
-        nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+        nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, nullptr);
     if (hSrc == INVALID_HANDLE_VALUE) {
         std::wcerr << L"Failed to open source file: " << srcPath << std::endl;
         return false;
     }
 
+    // Open the target path
     HANDLE hDst = CreateFileW(dstPath.c_str(), GENERIC_WRITE, 0, nullptr,
-        CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+        CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, nullptr);
     if (hDst == INVALID_HANDLE_VALUE) {
         std::wcerr << L"Failed to create destination file: " << dstPath << std::endl;
         CloseHandle(hSrc);
         return false;
     }
 
+    FILETIME ftCreate = {}, ftAccess = {}, ftWrite = {};
+
+    // Read file timestamps
+    if (!GetFileTime(hSrc, &ftCreate, &ftAccess, &ftWrite)) {
+        std::wcerr << L"Warning: Failed to get timestamps from: " << srcPath << std::endl;
+    }
+    // Read file attributes
+    DWORD fileAttrs = GetFileAttributesW(srcPath.c_str());
+    if (fileAttrs == INVALID_FILE_ATTRIBUTES) {
+        std::wcerr << L"Warning: Failed to get attributes from: " << srcPath << std::endl;
+        fileAttrs = FILE_ATTRIBUTE_NORMAL;
+    }
+
+
     const DWORD BUFFER_SIZE = getBlockSize();
     BYTE* buffer = new BYTE[BUFFER_SIZE];
     DWORD bytesRead = 0, bytesWritten = 0;
 
+    // Read the source file path and write to the target file path
     while (ReadFile(hSrc, buffer, BUFFER_SIZE, &bytesRead, nullptr) && bytesRead > 0) {
         if (!WriteFile(hDst, buffer, bytesRead, &bytesWritten, nullptr)) {
             std::wcerr << L"Failed to write to destination file: " << dstPath << std::endl;
@@ -35,7 +52,16 @@ bool VSSRestorer::restoreSingleFile(const std::wstring& srcPath, const std::wstr
     
     delete[] buffer;
     CloseHandle(hSrc);
+    // Apply timestamps to destination
+    if (!SetFileTime(hDst, &ftCreate, &ftAccess, &ftWrite)) {
+        std::wcerr << L"Warning: Failed to set timestamps for: " << dstPath << std::endl;
+    }
     CloseHandle(hDst);
+    // Set original file attributes 
+    if (!SetFileAttributesW(dstPath.c_str(), fileAttrs)) {
+        std::wcerr << L"Warning: Failed to set file attributes for: " << dstPath << std::endl;
+    }
+
 	std::cout << " < Done > " << std::endl;
     return true;
 }
@@ -44,6 +70,8 @@ bool VSSRestorer::restoreSingleFile(const std::wstring& srcPath, const std::wstr
 bool VSSRestorer::restoreVSSSnapshot(const std::wstring& srcDir, const std::wstring& dstDir) {
    
     CreateDirectoryW(dstDir.c_str(), nullptr);
+  
+
     std::wcout << "< Current Path being copied: " << dstDir << " > ";
     
     WIN32_FIND_DATAW findData;
@@ -88,7 +116,7 @@ bool VSSRestorer::restoreVSSSnapshot(const std::wstring& srcDir, const std::wstr
     FindClose(hFind);
     return true;
 }
-
+ 
 // Returns true if the path (file or directory) exists.
 bool VSSRestorer::pathExists(const std::wstring& path) {
     DWORD attributes = GetFileAttributesW(path.c_str());
@@ -144,7 +172,7 @@ RetVal VSSRestorer::validateConfig(VSSRestorer* vssRestorer) {
        std::cout << "Error! Blocksize cannot be 0 or negative" << std::endl;
        return FAILED;
    }
-
+   /*
    // Number of threads validation
    if (vssRestorer->getNoOfThreads() <= 0) {
 	   std::cout << "Error! Number of threads cannot be 0 or negative" << std::endl;
@@ -156,6 +184,6 @@ RetVal VSSRestorer::validateConfig(VSSRestorer* vssRestorer) {
        std::cout << "Error! Number of retries cannot be negative" << std::endl;
        return FAILED;
    }
-   
+   */
    return SUCCESS;
 }

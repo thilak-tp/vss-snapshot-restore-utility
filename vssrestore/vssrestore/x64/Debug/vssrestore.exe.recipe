@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Projects\C++ Development\shadowcopysnapshotrestore\bkp\vss-snapshot-restore-utility\vssrestore\x64\Debug\vssrestore.exe</FullPath>
+      <FullPath>D:\Projects\C++ Development\shadowcopysnapshotrestore\vss-snapshot-restore-utility\vssrestore\x64\Debug\vssrestore.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
