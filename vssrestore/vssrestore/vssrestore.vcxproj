@@ -123,14 +123,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="benchmark.cpp" />
     <ClCompile Include="config.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="vss_copy.cpp" />
+    <ClCompile Include="vss_restorer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app_defs.h" />
+    <ClInclude Include="benchmark.h" />
     <ClInclude Include="config.h" />
-    <ClInclude Include="vss_copy.h" />
+    <ClInclude Include="vss_restorer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

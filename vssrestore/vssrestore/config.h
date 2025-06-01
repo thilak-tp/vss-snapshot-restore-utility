@@ -1,35 +1,43 @@
 #pragma once
+// Declaration of a configuration class used to hold input paths and application configurations
+
+// Implicit headerfiles
 #include<string>
 #include <iostream>
-// Prototype of the Config class for managing configuration settings
+
+// Explicit headerfiles
+#include "app_defs.h"
 
 class Config {
-	std::string sourcePath;
-	std::string targetPath;
+	std::wstring sourcePath;
+	std::wstring targetPath;
 	int blockSize;;
 	int noOfThreads;
 	int noOfRetries;
+	bool benchmarkFlag;
+	bool debugFlag;
 
 public:
 	// Default constructor to initialize default values
 	Config();
 	
 	// Setter functions to retrieve configuration values
-	void setSourcePath(std::string src);
-	void setTargetPath(std::string dst);
-	void setBlockSize(int bSize);
+	void setSourcePath( std::wstring  src);
+	void setTargetPath( std::wstring  dst);
+	void setBlockSize(float bSize);
 	void setNoOfThreads(int nThreads);
 	void setNoOfRetries(int nRetries);
+	void setToBenchmark(bool benchmark);
+	void setDebugFlag(bool debug);
 
 	// Getter functions to access configuration values
-	std::string getSourcePath() const;
-	std::string getTargetPath() const;
-	int getBlockSize() const;
+	const std::wstring  getSourcePath() const;
+	const std::wstring  getTargetPath() const;
+	float getBlockSize() const;
 	int getNoOfThreads() const;
 	int getNoOfRetries() const;
-
-	// A function to validate the configuration settings
-	bool validateConfigValues(Config* config);
+	bool getBenchmarkFlag() const;
+	bool getDebugFlag() const;
 
 	// A function to display the current configuration settings for debugging purposes
 	void displayConfig();

@@ -21,7 +21,10 @@
     <ClCompile Include="config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vss_copy.cpp">
+    <ClCompile Include="vss_restorer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="benchmark.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +35,10 @@
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vss_copy.h">
+    <ClInclude Include="vss_restorer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="benchmark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
