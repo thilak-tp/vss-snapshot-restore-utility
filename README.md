@@ -35,7 +35,7 @@
 ### How to get the Shadow Copy Path of the created VSS Snapshot?
 - Open Command prompt with Admin privileges
 - Type the below command to list all the VSS Snapshots 
-vssadmin list shadows
+> vssadmin list shadows
 - In that find the  **Shadow Copy Volume** field which will be the required path.
 >  Ex:  \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy10
 
