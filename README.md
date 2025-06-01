@@ -8,10 +8,9 @@
 ## How to create a VSS Snapshot of a given drive?
 - Open Command prompt with Admin privileges
 - Type the below command and hit enter ( Replace the drive letter with that of the drive whose VSS Snapshot has to be created )
-''' 
-powershell.exe -Command (gwmi -list win32_shadowcopy).Create('E:\','ClientAccessible')
+ 
+> powershell.exe -Command (gwmi -list win32_shadowcopy).Create('E:\','ClientAccessible')
 
-'''
 ## How to get the Shadow Copy Path of the created VSS Snapshot?
 - Open Command prompt with Admin privileges
 - Type the below command to list all the VSS Snapshots 
