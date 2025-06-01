@@ -2,14 +2,14 @@
 ## Fast Block-Based VSS Snapshot restore utility
 ![screenshot](resources/run.png)
 
-### Build Dependancies 
+### Build Dependencies 
 - Visual Studio 2022 Community Edition : Windows SDK
 
   
 ### How to run the CLI application?
-1. Copy the console application from the vss-snapshot-restore-utility\vssrestore\x64\Release\vssrestore.exe and paste it somewhere in a folder in your drive.
+1. Copy the console application from the **vss-snapshot-restore-utility\vssrestore\x64\Release\vssrestore.exe** and paste it somewhere in a folder in your drive.
 2. Set the environment variable : Copy the path of the above folder into the PATH environment variable.
-Start Search -> Edit the System Environment Variables -> Environment Variables -> Path
+> Start Search -> Edit the System Environment Variables -> Environment Variables -> Path
 3. After setting the environment variable it can be directly used from the command prompt as follows
 > vssrestore <shadow_volume_path> <target_partition_path>
 
