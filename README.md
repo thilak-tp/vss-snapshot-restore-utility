@@ -2,11 +2,11 @@
 ## Fast Block-Based VSS Snapshot restore utility
 ![screenshot](resources/run.png)
 
-### Build Dependencies 
+## Build Dependencies 
 - Visual Studio 2022 Community Edition : Windows SDK
 
   
-### How to run the CLI application?
+## How to run the CLI application?
 1. Copy the console application from the **vss-snapshot-restore-utility\vssrestore\x64\Release\vssrestore.exe** and paste it somewhere in a folder in your drive.
 
 2. Set the environment variable : Copy the path of the above folder into the PATH environment variable.
@@ -23,7 +23,7 @@
 
 
 
-#### How to create a VSS Snapshot of a given drive?
+### How to create a VSS Snapshot of a given drive?
 - Open Command prompt with Admin privileges
 - Type the below command and hit enter ( Replace the drive letter with that of the drive whose VSS Snapshot has to be created )
  
@@ -31,7 +31,7 @@
 
 
 
-#### How to get the Shadow Copy Path of the created VSS Snapshot?
+### How to get the Shadow Copy Path of the created VSS Snapshot?
 - Open Command prompt with Admin privileges
 - Type the below command to list all the VSS Snapshots 
 vssadmin list shadows
