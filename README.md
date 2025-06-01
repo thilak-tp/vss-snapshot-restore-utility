@@ -24,6 +24,7 @@
 | 7. | 4096KB | 3699ms (3.699 seconds) |
 | 8. | 8192KB | 3837ms (3.837 seconds) |
 | 9. | 16384 | 5488 ms (5.488 seconds) |
-
+Fastest Run Screenshot:
+![screenshot](resources/fastestrunst.png)
 
 
