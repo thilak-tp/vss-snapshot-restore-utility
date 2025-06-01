@@ -20,7 +20,8 @@
 -    --bench   To measure copy time          (in Milliseconds)
 -    --debug   To display inputs being used
 -  Ex: vssrestore \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy10 F:\ -b 1024 --bench --debug
-
+#### Screengrab
+![screenshot](resources/fastestrunst.png)
 
 
 ### How to create a VSS Snapshot of a given drive?
@@ -35,7 +36,7 @@
 - Open Command prompt with Admin privileges
 - Type the below command to list all the VSS Snapshots 
 vssadmin list shadows
-- In that find the  Shadow Copy Volume field which will be the required path.
+- In that find the  **Shadow Copy Volume** field which will be the required path.
 >  Ex:  \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy10
 
 
@@ -55,8 +56,7 @@ vssadmin list shadows
 - Drive Used: NVMe SSD Samsung
 - Target Drive:  F:\ Drive of 10GBs (NTFS) Empty
 #### Benchmark for various blocksizes
-##### Fastest Run Screenshot:
-![screenshot](resources/fastestrunst.png)
+
 |SL. no. | Blocksize | Latency for restoration |
 | -- | -- | -- |
 | 1. | 1KB | 16074 ms (16.074 seconds) |
