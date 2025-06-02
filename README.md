@@ -10,7 +10,7 @@
 1. Copy the console application from the **vss-snapshot-restore-utility\vssrestore\x64\Release\vssrestore.exe** and paste it somewhere in a folder in your drive.
 
 2. Set the environment variable : Copy the path of the above folder into the PATH environment variable.
----------------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------------
  Start Search -> Edit the System Environment Variables -> Environment Variables -> Path
  ---------------------------------------------------------------------------------------------------------------------------
 
