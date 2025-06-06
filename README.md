@@ -10,20 +10,19 @@
 1. Copy the console application from the **vss-snapshot-restore-utility\vssrestore\x64\Release\vssrestore.exe** and paste it somewhere in a folder in your drive.
 
 2. Set the environment variable : Copy the path of the above folder into the PATH environment variable.
- ---------------------------------------------------------------------------------------------------------------------------
- Start Search -> Edit the System Environment Variables -> Environment Variables -> Path
- ---------------------------------------------------------------------------------------------------------------------------
+ 
+> Start Search -> Edit the System Environment Variables -> Environment Variables -> Path
+ 
 
 3. After setting the environment variable, the utility can be directly used from the command prompt as follows
----------------------------------------------------------------------------------------------------------------------------
- vssrestore <shadow_volume_path> <target_partition_path>
+> vssrestore <shadow_volume_path> <target_partition_path>
 
-- Optional Parameters:
--    -b        Specify the block size        (By default: 1024 kilobytes (1MB))
--    --bench   To measure copy time          (in Milliseconds)
--    --debug   To display inputs being used
--  Ex: vssrestore \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy10 F:\ -b 1024 --bench --debug
----------------------------------------------------------------------------------------------------------------------------
+> Optional Parameters:
+>    -b        Specify the block size        (By default: 1024 kilobytes (1MB))
+>    --bench   To measure copy time          (in Milliseconds)
+>    --debug   To display inputs being used
+>  Ex: vssrestore \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy10 F:\ -b 1024 --bench --debug
+
 #### Screengrab
 ![screenshot](resources/fastestrunst.png)
 
@@ -31,21 +30,20 @@
 ### How to create a VSS Snapshot of a given drive?
 - Open Command prompt with Admin privileges
 - Type the below command and hit enter ( Replace the drive letter with that of the drive whose VSS Snapshot has to be created )
---------------------------------------------------------------------------------------------------------------------------- 
- powershell.exe -Command (gwmi -list win32_shadowcopy).Create('E:\','ClientAccessible')
----------------------------------------------------------------------------------------------------------------------------
+
+> powershell.exe -Command (gwmi -list win32_shadowcopy).Create('E:\','ClientAccessible')
+
 
 
 ### How to get the Shadow Copy Path of the created VSS Snapshot?
 - Open Command prompt with Admin privileges
 - Type the below command to list all the VSS Snapshots
----------------------------------------------------------------------------------------------------------------------------
-  vssadmin list shadows
----------------------------------------------------------------------------------------------------------------------------
+
+>  vssadmin list shadows
+
 - In that find the  **Shadow Copy Volume** field which will be the required path.
----------------------------------------------------------------------------------------------------------------------------
-  Ex:  \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy10
----------------------------------------------------------------------------------------------------------------------------
+
+>  Ex:  \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy10
 
 ## Testing
 ### VSS Restoration Benchmark
